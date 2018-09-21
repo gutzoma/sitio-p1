@@ -20,16 +20,21 @@ export class ProductosService {
     this.http.get('https://angula-html.firebaseio.com/productos_idx.json')
     .subscribe( (resp: Producto[]) => {
 
-      console.log(resp);
+
 
       this.productos = resp;
       this.cargando = false;
       // setTimeout(() => { 
       // }, 2000);
-      
+
 
     });
 
+  }
+
+  getProducto( id: string){
+
+    return this.http.get( `https://angula-html.firebaseio.com/productos/${ id }.json`);
   }
 
 
